@@ -17,12 +17,15 @@ router.get("/all/:id", async (req, res) => {
 //create new Trainee Department
 router.post("/create", async (req, res) => {
   try {
-    const { title, description, traineeTable } = req.body;
+    const { title, description, traineeTable, departmentPdf, departmentImg } =
+      req.body;
 
     const newDepartment = new TraineeDepartment({
       title,
       description,
       traineeTable,
+      departmentPdf,
+      departmentImg,
     });
     await newDepartment.save();
 

@@ -8,6 +8,12 @@ const TraineeDepartmentSchema = new mongoose.Schema(
     title: {
       type: String,
     },
+    departmentImg: {
+      type: Array,
+    },
+    departmentPdf: {
+      type: Array,
+    },
 
     traineeTable: {
       type: mongoose.Schema.Types.ObjectId,
