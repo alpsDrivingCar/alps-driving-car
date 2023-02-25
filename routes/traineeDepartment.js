@@ -27,9 +27,11 @@ router.post("/create", async (req, res) => {
       departmentPdf,
       departmentImg,
     });
-    await newDepartment.save();
+    const savedDepartment = await newDepartment.save();
 
-    res.status(200).json({ msg: "created Successfully" });
+    res
+      .status(200)
+      .json({ msg: "created Successfully", data: savedDepartment });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
@@ -91,6 +93,36 @@ router.put("/:id", async (req, res) => {
       .json({ msg: "successfully updated", data: traineeDepartment });
   } catch (err) {
     return res.status(500).json({ msg: err });
+  }
+});
+
+//update Image
+router.put("/image/:id", async (req, res) => {
+  try {
+    const department = await TraineeDepartment.findById(req.params.id);
+
+    await TraineeDepartment.updateOne({
+      $pull: { departmentImg: req.body.urlImage },
+    });
+
+    res.status(200).json("image has been Deleted ");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//update Pdf
+router.put("/pdf/:id", async (req, res) => {
+  try {
+    const department = await TraineeDepartment.findById(req.params.id);
+
+    await TraineeDepartment.updateOne({
+      $pull: { departmentPdf: req.body.urlImage },
+    });
+
+    res.status(200).json("Pdf has been Deleted ");
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
