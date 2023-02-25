@@ -1,0 +1,27 @@
+{
+  "name": "herokudeploy",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.2",
+    "nodemailer": "^6.9.1"
+  },
+  "resolutions": {
+    "fs-capacitor": "3.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
