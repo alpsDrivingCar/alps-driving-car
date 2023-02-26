@@ -23,16 +23,18 @@ router.get("/all/:id", async (req, res) => {
 
 router.post("/create", async (req, res) => {
   try {
-    const { subject, text, adminTable } = req.body;
+    const { subject, text, adminTable, pdfMail, imageMail } = req.body;
 
     const newMail = new Mail({
       subject,
       text,
       adminTable,
+      pdfMail,
+      imageMail,
     });
     const SavedMail = await newMail.save();
 
-    res.status(200).json({ msg: "created Successfully" });
+    res.status(200).json({ msg: "created Successfully", data: SavedMail });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }

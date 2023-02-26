@@ -8,6 +8,13 @@ const MailSchema = new mongoose.Schema(
     text: {
       type: String,
     },
+
+    imageMail: {
+      type: String,
+    },
+    pdfMail: {
+      type: String,
+    },
     adminTable: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "adminTable",
